@@ -39,7 +39,7 @@ function initStudents()
 function setup() {
   lastName = '';
 
-  createCanvas(1200, 1500);
+  createCanvas(1200, 2000);
   background(242,93,146);
 
   //IdentityTheft = loadSound('Its Not a Joke.mp3')
@@ -126,17 +126,31 @@ function checkIn(data)
           {
             checkInTimeout=true
             students[i].hasArrived = !students[i].hasArrived //toggle
+            
+            /**********add additional code for that student*////////
+              if(h<9){
+              //early
+              }
+              else{
+              //late
+              }
+    
+    
+    let postData = {name:students[i].name,time:students[i].time}
+    url = "/platform"
+    httpPost(url, 'json',postData, function(result){
+      console.log("what happens you are late")
+    }
+    );
+    
+    //*********END CODE AFTER SWIPE*************//
+            
             setTimeout(changeBox, swipeTimeout)
           }
         }
     }
     
-    if(h<9){
-      //early
-    }
-    else{
-      //late
-    }
+  
     
     //console.log(lastName)
     //console.log(h + ":" + m)

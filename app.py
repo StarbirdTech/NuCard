@@ -28,6 +28,7 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 
 def nfcLoop(x):
+    now=datetime.now().time() 
     try:
         pn532 = PN532_SPI(debug=False, reset=20, cs=4)
         #pn532 = PN532_I2C(debug=False, reset=20, req=16)
@@ -108,6 +109,13 @@ def checkin():
     temp = string.value
     string.value=''
     return temp
+
+@app.route("/platform", methods = ["POST"])
+def updatePlatform():
+    #write code here to make a POST request
+    #with authority to the nuvu platform attendance
+    print("hello")
+    return redirect("/checkin")
 
 if __name__ == '__main__':
    manager = Manager()

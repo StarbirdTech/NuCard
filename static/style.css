@@ -1,8 +1,14 @@
 html, body {
   margin: 0;
   padding: 0;
+  background-color:#ef5f90;
 }
 
 canvas {
   display: block;
 }
+
+h1 {
+  color:#dddddd;
+}
+
